@@ -21,7 +21,8 @@ public class UserEntity {
 	private String city;
 	private String bornYear;
 	private String gender;
-
+	private String role;
+	
 	public Integer getUserId() {
 		return userId;
 	}
@@ -92,6 +93,14 @@ public class UserEntity {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	

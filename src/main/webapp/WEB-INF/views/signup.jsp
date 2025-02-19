@@ -14,13 +14,18 @@
 		LastName: <input type="text" name="lastName"  /><br><br> 
 		
 		Gender: Male<input type="radio" name="gender" value="male">
-				FeMale<input type="radio" name="gender" value="female"><bR><br> 
+				FeMale<input type="radio" name="gender" value="female"><br><br> 
 		
+		ContactNum: <input type="text" name="contactNum"/><br><br> 
+		
+		City: <input type="text" name="city"/><br></br>
 		
 		Email: <input type="text" name="email"/><br><br> 
 		
 		
 		Password: <input type="password" name="password"/><br><br> 
+		
+		BornYear  : <input type="text" name="bornYear"/><br><Br> 
 	
 		<input type="submit" value="Signup"/>
 	

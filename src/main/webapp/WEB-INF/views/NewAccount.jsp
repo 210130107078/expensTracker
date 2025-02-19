@@ -10,7 +10,9 @@
 <h2>New Account</h2>
 
 	<form action="saveaccount" method="Post">
-	AccountName:<input type="text" name="accountName"/><br><Br> 
+	Title:<input type="text" name="title"/><br><Br> 
+	Amount :<input type="text" name="amount"/><br><Br>
+	Description :<input type="text" name="description"/><br><Br>
 	<input type="submit" value="Save Account">
 	</form>	
 </body>

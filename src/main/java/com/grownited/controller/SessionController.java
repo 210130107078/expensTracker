@@ -1,16 +1,32 @@
 package com.grownited.controller;
 
+import java.net.PasswordAuthentication;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.grownited.entity.UserEntity;
+import com.grownited.repository.UserRepository;
+import com.grownited.service.MailService;
 
 
 //Get Post 
 
 @Controller
 public class SessionController {
+	
+	@Autowired
+	MailService serviceMail;
 
+	@Autowired
+	UserRepository repositoryUser;
 	// signup.jsp
+	
+	@Autowired
+	PasswordEncoder encoder;
 
 	@GetMapping(value = { "/", "signup" }) // url
 	public String signup() {
@@ -21,7 +37,24 @@ public class SessionController {
 	public String login(String email, String password) {
 		return "Login";// jsp name
 	}
+	
+	@PostMapping("saveuser")
+	public String saveuser(UserEntity userEntity) {
+		
+		String encPassword = encoder.encode(userEntity.getPassword());
+		userEntity.setPassword(encPassword);
+		 //memory 
+		//bcrypt singleton -> single object -> autowired
+		
+		userEntity.setRole("USER");
+		repositoryUser.save(userEntity);
+	// send mail
+	serviceMail.sendWelcomeMail(userEntity.getEmail(),userEntity.getFirstName());
+	return "Login";// jsp
+		
+	}
 
+	
 	
 
 	// open ForgetPassword jsp

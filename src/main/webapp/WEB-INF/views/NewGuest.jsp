@@ -9,7 +9,7 @@
 <body>
 	<h2>New Guest</h2>
 	<form action="saveguest" method="post">
-		Full Name : <input type="text" name="fullName"/> <br><Br> 
+		FullName : <input type="text" name="fullName"/> <br><Br> 
 		ContactNum: <input type="text" name="contactNum"/> <br><br> 
 		HouseNum :  <input type="text" name="houseNum"/><br><br> 
 		DateTime :  <input type="text" name="dateTime"/><bR><br> 
