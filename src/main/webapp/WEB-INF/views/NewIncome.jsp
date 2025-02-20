@@ -16,7 +16,7 @@ Status :<input type="text" name="status"/><br></br>
 Amount :<input type="text" name="amount"/><br></br>
 TranscationDate :<input type="text" name="transcationDate"/><br></br>
 Description :<input type="text" name="description"/><br></br>
-<input type="submit" value="Save Expense"/>
+<input type="submit" value="Save Income"/>
 
 </form>
 
