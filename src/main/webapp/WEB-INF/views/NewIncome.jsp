@@ -9,7 +9,7 @@
 <body>
 <h2>New Income</h2>
 
-<form action="saveexpense" method="post">
+<form action="saveincome" method="post">
 
 Title :<input type="text" name="title"/><br></br>
 Status :<input type="text" name="status"/><br></br>
