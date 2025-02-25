@@ -15,13 +15,14 @@
 
 		<tr>
 			    <th>Full Name</th>
-			    <th>contactNum</th>
-				<th>houseNum</th>
-				<th>dateTime</th>
-				<th>purpose</th>
-				<th>pic</th>
-				<th>vehicleRegNo</th>
-				<th>numberOfVisitors</th>	
+			    <th>ContactNum</th>
+				<th>HouseNum</th>
+				<th>DateTime</th>
+				<th>Purpose</th>
+				<th>Pic</th>
+				<th>VehicleRegNo</th>
+				<th>NumberOfVisitors</th>	
+				<th>Action</th>
 		</tr>
 		<c:forEach items="${guestList}" var="g">
 
@@ -34,10 +35,12 @@
 				<td>${g.pic}</td>
 				<td>${g.vehicleRegNo}</td>
 				<td>${g.numberOfVisitors}</td>	
+				<td><a href="viewguest?guestId=${g.guestId}">View</a>  |  <a href="deleteguest?guestId=${g.guestId}">Delete</a>  |  Edit </td>
 				
 			</tr>
 		</c:forEach>
 	</table>
+	
 
 </body>
 </html>

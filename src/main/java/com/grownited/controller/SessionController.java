@@ -1,10 +1,12 @@
 package com.grownited.controller;
 
 import java.net.PasswordAuthentication;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -52,6 +54,26 @@ public class SessionController {
 	serviceMail.sendWelcomeMail(userEntity.getEmail(),userEntity.getFirstName());
 	return "Login";// jsp
 		
+	}
+	
+	@PostMapping("authenticate")
+	public String authenticate(String email, String password,Model model) {// sakira@yopmail.com sakira
+		System.out.println(email);
+		System.out.println(password);
+
+		// users -> email,password
+		Optional<UserEntity> op = repositoryUser.findByEmail(email);
+		// select * from users where email = :email and password = :password
+		if (op.isPresent()) {
+			// true
+			// email
+			UserEntity dbUser = op.get();
+			if (encoder.matches(password, dbUser.getPassword())) {
+				return "redirect:/home";
+			}
+		}
+		model.addAttribute("error","Invalid Credentials");
+		return "Login";
 	}
 
 	

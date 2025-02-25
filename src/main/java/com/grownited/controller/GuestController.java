@@ -2,6 +2,7 @@ package com.grownited.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,4 +41,28 @@ public class GuestController {
 			
 			return "ListGuest";
 	}
+		
+		@GetMapping("viewguest")
+		public String viewGuest(Integer guestId, Model model) {
+			// ?
+			System.out.println("id ===> " + guestId);
+			Optional<GuestEntity> op = repositoryGuest.findById(guestId);
+			if (op.isEmpty()) {
+				// not found
+			} else {
+				// data found
+				GuestEntity guest = op.get();
+				// send data to jsp ->
+				model.addAttribute("guest", guest);
+
+			}
+
+			return "ViewGuest";
+		}
+		
+		@GetMapping("deleteguest")
+		public String deleteGuest(Integer guestId) {
+			repositoryGuest.deleteById(guestId);//delete from guests where guestID = :guestId
+			return "redirect:/listguest";
+		}
 }
