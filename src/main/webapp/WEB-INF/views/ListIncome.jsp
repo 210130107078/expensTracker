@@ -20,6 +20,7 @@
 		<th>Amount</th>
 		<th>TranscationDate</th>
 		<th>Description</th>
+		<th>Action</th>
 		</tr>
 		
 		<c:forEach items="${incomeList}" var="i">
@@ -30,6 +31,7 @@
 		<td>${i.amount}</td>
 		<td>${i.transcationDate}</td>
 		<td>${i.description}</td>
+		<td><a href="viewincome?incomeId=${i.incomeId}">View</a>  |  <a href="deleteincome?incomeId=${i.incomeId}">Delete</a>  |  Edit </td>
 		</tr>
 		
 		</c:forEach>

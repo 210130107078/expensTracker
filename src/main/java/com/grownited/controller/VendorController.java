@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AccountEntity;
+import com.grownited.entity.ExpenseEntity;
 import com.grownited.entity.VendorEntity;
 import com.grownited.repository.VendorRepository;
 
@@ -36,5 +38,30 @@ public class VendorController {
 		return "ListVendor";
 		
 	}
+	
+	@GetMapping("viewvendor")
+	public String viewVendor(Integer vendorId, Model model) {
+		// ?
+		System.out.println("id ===> " + vendorId);
+		Optional<VendorEntity> op = repoVendor.findById(vendorId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			VendorEntity vendor = op.get();
+			// send data to jsp ->
+			model.addAttribute("vendor", vendor);
+
+		}
+
+		return "ViewVendor";
+	}
+	
+	@GetMapping("deletevendor")
+	public String deleteVendor(Integer vendorId) {
+		repoVendor.deleteById(vendorId);//delete from guests where guestID = :guestId
+		return "redirect:/listvendor";
+	}
+	
 	
 }

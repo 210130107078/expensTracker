@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AccountEntity;
+import com.grownited.entity.ExpenseEntity;
 import com.grownited.entity.IncomeEntity;
 import com.grownited.repository.IncomeRepository;
 
@@ -40,5 +42,30 @@ public class IncomeController {
 		return "ListIncome";
 		
 	}
+	
+	@GetMapping("viewincome")
+	public String viewIncome(Integer incomeId, Model model) {
+		// ?
+		System.out.println("id ===> " + incomeId);
+		Optional<IncomeEntity> op = repoIncome.findById(incomeId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			IncomeEntity income = op.get();
+			// send data to jsp ->
+			model.addAttribute("income", income);
+
+		}
+
+		return "ViewIncome";
+	}
+	
+	@GetMapping("deleteincome")
+	public String deleteIncome(Integer incomeId) {
+		repoIncome.deleteById(incomeId);//delete from guests where guestID = :guestId
+		return "redirect:/listincome";
+	}
+	
 	
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>New Category</h2>
-<form action="savecategory" method="Post">
+<form action="savecategory" method="post">
 Title :<input type="text" name="title"><br></br>
 <input type="submit" value="Save Category">
 

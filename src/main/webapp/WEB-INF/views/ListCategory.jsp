@@ -17,12 +17,14 @@
 		
 		<tr>
 		<th>Title</th>
+		<th>Action</th>
 		</tr>
 		
 		<c:forEach items="${categoryList}" var="c">
 		
 		<tr>
 		<td>${c.title}</td>
+		<td><a href="viewcategory?categoryId=${c.categoryId}">View</a>  |  <a href="deletecategory?categoryId=${c.categoryId}">Delete</a>  |  Edit </td>
 		</tr>
 		
 		</c:forEach>

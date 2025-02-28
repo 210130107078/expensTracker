@@ -15,6 +15,7 @@
 		
 		<tr>
 		<th>Title</th>
+		<th>Action</th>
 
 		</tr>
 		
@@ -22,6 +23,7 @@
 		
 		<tr>
 		<td>${v.title}</td>
+		<td><a href="viewvendor?vendorId=${v.vendorId}">View</a>  |  <a href="deletevendor?vendorId=${v.vendorId}">Delete</a>  |  Edit </td>
 		</tr>
 		
 		</c:forEach>

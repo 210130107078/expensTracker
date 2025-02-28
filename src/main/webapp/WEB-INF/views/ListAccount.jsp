@@ -18,6 +18,7 @@
 		<th>Title</th>
 		<th>Amount</th>
 		<th>Description</th>
+		<th>Action</th>
 		</tr>
 		
 		<c:forEach items="${accountList}" var="a">
@@ -26,6 +27,7 @@
 		<td>${a.title}</td>
 		<td>${a.amount}</td>
 		<td>${a.description}</td>
+		<td><a href="viewaccount?accountId=${a.accountId}">View</a>  |  <a href="deleteaccount?accountId=${a.accountId}">Delete</a>  |  Edit </td>
 		</tr>
 		
 		</c:forEach>

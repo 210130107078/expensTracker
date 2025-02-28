@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AccountEntity;
 import com.grownited.entity.ExpenseEntity;
+import com.grownited.entity.GuestEntity;
 import com.grownited.repository.ExpenseRepository;
 
 @Controller
@@ -38,6 +40,30 @@ public class ExpenseController {
 								//dataName , dataValue
 		return "ListExpense";
 		
+	}
+	
+	@GetMapping("viewexpense")
+	public String viewExpense(Integer expenseId, Model model) {
+		// ?
+		System.out.println("id ===> " + expenseId);
+		Optional<ExpenseEntity> op = repoExpense.findById(expenseId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			ExpenseEntity expense = op.get();
+			// send data to jsp ->
+			model.addAttribute("expense", expense);
+
+		}
+
+		return "ViewExpense";
+	}
+	
+	@GetMapping("deleteexpense")
+	public String deleteExpense(Integer expenseId) {
+		repoExpense.deleteById(expenseId);//delete from guests where guestID = :guestId
+		return "redirect:/listexpense";
 	}
 	
 }

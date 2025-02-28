@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.grownited.entity.AccountEntity;
 import com.grownited.entity.CategoryEntity;
 import com.grownited.repository.CategoryRepository;
 
@@ -17,8 +17,6 @@ public class CategoryController {
 	
 	@Autowired
 	CategoryRepository repoCategory;
-	private Object categoryList;
-
 	@GetMapping("newcategory")
 	public String newcategory() {
 		return "NewCategory";
@@ -41,4 +39,29 @@ public class CategoryController {
 		return "ListCategory";
 		
 	}
+	
+	@GetMapping("viewcategory")
+	public String viewCategory(Integer categoryId, Model model) {
+		// ?
+		System.out.println("id ===> " + categoryId);
+		Optional<CategoryEntity> op = repoCategory.findById(categoryId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			CategoryEntity category = op.get();
+			// send data to jsp ->
+			model.addAttribute("category", category);
+
+		}
+
+		return "ViewCategory";
+	}
+	
+	@GetMapping("deletecategory")
+	public String deleteCategory(Integer categoryId) {
+		repoCategory.deleteById(categoryId);//delete from guests where guestID = :guestId
+		return "redirect:/listcategory";
+	}
+	
 }

@@ -11,14 +11,14 @@ import jakarta.persistence.Table;
 public class CategoryEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer categoryIdString;
+	private Integer categoryId;
 	private String title;
 	private Integer userId;
-	public Integer getCategoryIdString() {
-		return categoryIdString;
+	public Integer getCategoryId() {
+		return categoryId;
 	}
-	public void setCategoryIdString(Integer categoryIdString) {
-		this.categoryIdString = categoryIdString;
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 	public String getTitle() {
 		return title;
