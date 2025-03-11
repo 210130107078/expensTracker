@@ -9,7 +9,7 @@
 <body>
 <h2>New Subcategory</h2>
 <form action="savesubcategory" method="Post">
-Title :<input type="text" name="title"><br></br>
+SubTitle :<input type="text" name="subTitle"><br></br>
 <input type="submit" value="Save Subcategory">
 
 </form>

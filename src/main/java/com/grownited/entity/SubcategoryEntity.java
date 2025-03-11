@@ -9,38 +9,35 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Subcategory")
 public class SubcategoryEntity {
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer subcategoryId;
-	private String title;
+	private String subTitle;
 	private Integer categoryId;
-	private Integer userId;
+
 	public Integer getSubcategoryId() {
 		return subcategoryId;
 	}
+
 	public void setSubcategoryId(Integer subcategoryId) {
 		this.subcategoryId = subcategoryId;
 	}
-	public String getTitle() {
-		return title;
+
+	public String getSubTitle() {
+		return subTitle;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
 	}
+
 	public Integer getCategoryId() {
 		return categoryId;
 	}
+
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
-	public Integer getUserId() {
-		return userId;
-	}
-	public void setUserId(Integer userId) {
-		this.userId = userId;
-	}
-	
-	
 
 }

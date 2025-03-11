@@ -11,7 +11,7 @@
 
 
 
-		Title : ${subcategory.title }<br>
+		SubTitle : ${subcategory.subtitle }<br>
 				
 </body>
 </html>

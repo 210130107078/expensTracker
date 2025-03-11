@@ -15,8 +15,6 @@ public class AccountEntity {
 	private String title;
 	private String amount;
 	private String description;
-	
-	
 	private Integer userId;
 	
 	public Integer getAccountId() {

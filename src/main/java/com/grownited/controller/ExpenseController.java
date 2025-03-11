@@ -36,7 +36,7 @@ public class ExpenseController {
 		List<ExpenseEntity> expenseList = repoExpense.findAll();
 		//how to send data from controller to jsp 
 				//Model 
-				model.addAttribute("expenseList",expenseList);
+				model.addAttribute("expenselist",expenseList);
 								//dataName , dataValue
 		return "ListExpense";
 		

@@ -16,6 +16,7 @@
 		
 		<tr>
 		<th>Title</th>
+	    <th>SubTitle</th>
 		<th>Action</th>
 		</tr>
 		
@@ -23,6 +24,7 @@
 		
 		<tr>
 		<td>${s.title}</td>
+		<td>${s.subTitle }</td>
 		<td><a href="viewsubcategory?subcategoryId=${s.subcategoryId}">View</a>  |  <a href="deletesubcategory?subcategoryId=${s.subcategoryId}">Delete</a>  |  Edit </td>
 		</tr>
 		
