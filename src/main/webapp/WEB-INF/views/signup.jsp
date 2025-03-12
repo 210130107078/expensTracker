@@ -79,7 +79,7 @@
 									</div>
 
 									<form class="row g-3 needs-validation" novalidate
-										action="saveuser" method="post">
+										action="saveuser" method="post" enctype="multipart/form-data">
 										<div class="col-12">
 											<label for="yourName" class="form-label">First Name</label> <input
 												type="text" name="firstName" class="form-control"
@@ -152,6 +152,14 @@
 											<div class="invalid-feedback">Please, enter your birth
 												year!</div>
 										</div>
+										
+										<div class="input-group mb-3">
+ 							<input type="file" class="form-control" placeholder="Profile"
+ 								name="profilePic" />
+ 							<div class="input-group-text">
+ 								<span class="bi bi-cake"></span>
+ 							</div>
+ 						</div>
 
 										<div class="col-12">
 											<div class="form-check">

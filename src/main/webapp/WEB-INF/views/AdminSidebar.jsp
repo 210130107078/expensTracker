@@ -38,11 +38,11 @@
 		</li>
 			
 			<li class="nav-item"><a class="nav-link collapsed"
-			data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i
+			data-bs-target="#vendor-nav" data-bs-toggle="collapse" href="#"> <i
 				class="bi bi-gem"></i><span>Vendor</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 				</a>
-		<ul id="icons-nav" class="nav-content collapse "
+		<ul id="vendor-nav" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
 				<li><a href="newvendor"> <i class="bi bi-circle"></i><span>New Vendor</span>
 				</a></li>
@@ -53,11 +53,11 @@
 		
 				
 			<li class="nav-item"><a class="nav-link collapsed"
-			data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i
+			data-bs-target="#category-nav" data-bs-toggle="collapse" href="#"> <i
 				class="bi bi-gem"></i><span>Category</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
-		<ul id="icons-nav" class="nav-content collapse "
+		<ul id="category-nav" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
 				<li><a href="newcategory"> <i class="bi bi-circle"></i><span>New Category</span>
 				</a></li>
@@ -67,11 +67,11 @@
 			</li>
 			
 			<li class="nav-item"><a class="nav-link collapsed"
-			data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i
+			data-bs-target="#subcategory-nav" data-bs-toggle="collapse" href="#"> <i
 				class="bi bi-gem"></i><span>Subcategory</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
-		<ul id="icons-nav" class="nav-content collapse "
+		<ul id="subcategory-nav" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
 				<li><a href="newsubcategory"> <i class="bi bi-circle"></i><span>New Subcategory</span>
 				</a></li>
@@ -81,11 +81,11 @@
 			</li>
 			
 			<li class="nav-item"><a class="nav-link collapsed"
-			data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i
+			data-bs-target="#expense-nav" data-bs-toggle="collapse" href="#"> <i
 				class="bi bi-gem"></i><span>Expense</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
-		<ul id="icons-nav" class="nav-content collapse "
+		<ul id="expense-nav" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
 				<li><a href="newexpense"> <i class="bi bi-circle"></i><span>New Expense</span>
 				</a></li>
@@ -95,11 +95,11 @@
 			</li>
 			
 			<li class="nav-item"><a class="nav-link collapsed"
-			data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i
+			data-bs-target="#income-nav" data-bs-toggle="collapse" href="#"> <i
 				class="bi bi-gem"></i><span>Income</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
-		<ul id="icons-nav" class="nav-content collapse "
+		<ul id="income-nav" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
 				<li><a href="newincome"> <i class="bi bi-circle"></i><span>New Income</span>
 				</a></li>
