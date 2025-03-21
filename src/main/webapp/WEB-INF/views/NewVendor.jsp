@@ -39,9 +39,14 @@
 									<h5 class="card-title">
 										Reports <span>/Today</span>
 									</h5>
-<form action="savevendor" method="Post">
-Title :<input type="text" name="title"><br></br>
-<input type="submit" value="Save Vendor">
+
+
+<form action="savevendor" method="post" class="p-3">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" class="form-control mb-2" required>
+
+    
+    <button type="submit" class="btn btn-primary">Save Vendor</button>
 </form>
 <br><br>
 					<br><br>

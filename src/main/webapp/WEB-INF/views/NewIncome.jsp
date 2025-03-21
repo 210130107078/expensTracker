@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,15 +42,41 @@
 									</h5>
 
 <form action="saveincome" method="post">
-
-Title :<input type="text" name="title"/><br></br>
-Status :<input type="text" name="status"/><br></br>
-Amount :<input type="text" name="amount"/><br></br>
-TranscationDate :<input type="text" name="transcationDate"/><br></br>
-Description :<input type="text" name="description"/><br></br>
-<input type="submit" value="Save Income"/>
-
-</form>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="title" id="title" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" name="status" required>
+                        <option value="">Select Status</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Overdue">Overdue</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" name="amount" id="amount" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="transactionDate" class="form-label">Transaction Date</label>
+                    <input type="date" name="transcationDate" id="transactionDate" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" class="form-control" rows="3" required></textarea>
+                </div>
+                
+                <select name="accountId">
+                	<c:forEach items="${allAccount}" var="a">
+                		<option value="${a.accountId}">${a.amount }</option>
+                		
+                	</c:forEach>
+                </select>
+                
+                <button type="submit" class="btn btn-primary w-100">Save Income</button>
+            </form>
 <br><br>
 					<br><br>
 					

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.AccountEntity;
 import com.grownited.entity.ExpenseEntity;
 import com.grownited.entity.IncomeEntity;
+import com.grownited.repository.AccountRepository;
 import com.grownited.repository.IncomeRepository;
 
 @Controller
@@ -20,14 +21,21 @@ public class IncomeController {
 	@Autowired
 	IncomeRepository repoIncome;
 	
+	@Autowired
+	AccountRepository repoAccount;
+	
 	@GetMapping("newincome")
-	public String newincome() {
+	public String newincome(Model model) {
+List<AccountEntity> allAccount = repoAccount.findAll();// all state
+ 		
+ 		model.addAttribute("allAccount",allAccount);
 		return "NewIncome";
 		
 	}
 	
 	@PostMapping("saveincome")
-	public String saveincome(IncomeEntity income) {
+	public String saveincome(IncomeEntity income,Integer accountId) {
+		income.setAccountId(accountId);
 		repoIncome.save(income);
 		return "redirect:/listincome";
 	}

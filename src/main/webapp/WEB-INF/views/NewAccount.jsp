@@ -42,12 +42,19 @@
 									<h5 class="card-title">
 										Reports <span>/Today</span>
 									</h5>
-	<form action="saveaccount" method="Post">
-	Title:<input type="text" name="title"/><br><Br> 
-	Amount :<input type="text" name="amount"/><br><Br>
-	Description :<input type="text" name="description"/><br><Br>
-	<input type="submit" value="Save Account">
-	</form>	
+	<form action="saveaccount" method="post" class="p-3">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" class="form-control mb-2" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" name="amount" id="amount" class="form-control mb-2" required>
+
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" class="form-control mb-2" rows="3" required></textarea>
+
+    <button type="submit" class="btn btn-primary">Save Account</button>
+</form>
+	
 
 					<br><br>
 					<br><br>

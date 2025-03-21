@@ -185,6 +185,7 @@
 										Reports <span>/Today</span>
 									</h5>
 
+<a href="newstate">Add Subcategory</a>
 					<br><br>
 					<br><br>
 					

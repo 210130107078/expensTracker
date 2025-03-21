@@ -9,9 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.grownited.dto.SubcategoryDto;
 import com.grownited.entity.CategoryEntity;
-import com.grownited.entity.ExpenseEntity;
 import com.grownited.entity.SubcategoryEntity;
 import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.SubcategoryRepository;
@@ -27,15 +25,18 @@ public class SubcategoryController {
 	
 	@GetMapping("newsubcategory")
 	public String newsubcategory(Model model) {
-List<CategoryEntity> allCategory = repoCategory.findAll();// all state
 		
-		model.addAttribute("allCategory",allCategory);
+List<CategoryEntity> allCategory = repoCategory.findAll();// all state
+ 		
+ 		model.addAttribute("allCategory",allCategory);
+ 		
 		return "NewSubcategory";
 		
 	}
 	
 	@PostMapping("savesubcategory")
-	public String savesubcategory(SubcategoryEntity subcategory) {
+	public String savesubcategory(SubcategoryEntity subcategory,Integer categoryId) {
+		subcategory.setCategoryId(categoryId);
 		repoSubcategory.save(subcategory);
 		return "redirect:/listsubcategory";	
 		
@@ -43,15 +44,16 @@ List<CategoryEntity> allCategory = repoCategory.findAll();// all state
 	
 	@GetMapping("listsubcategory")
 	public String listsubcategory(Model model) {
-	//	List<SubcategoryDto> allsubcategory = repoSubcategory.getall();
-		
+		List<SubcategoryEntity> subcategoryList = repoSubcategory.findAll();
 		//how to send data from controller to jsp 
 		//Model 
-		model.addAttribute("allSubcategory",repoSubcategory.getAll());
+		model.addAttribute("subcategoryList",subcategoryList);
 						//dataName , dataValue
 		return "ListSubcategory";
 		
 	}	
+	
+	
 	
 	
 	@GetMapping("viewsubcategory")

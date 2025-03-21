@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,11 +42,25 @@
 									<h5 class="card-title">
 										Reports <span>/Today</span>
 									</h5>
-<form action="savesubcategory" method="Post">
-SubTitle :<input type="text" name="subTitle"><br></br>
-<input type="submit" value="Save Subcategory">
 
+
+
+
+<form action="savesubcategory" method="post" class="p-3">
+ 
+
+
+    <label for="subTitle">SubTitle:</label>
+    <input type="text" name="subtitle" id="subtitle" class="form-control mb-2" required>
+
+    <select name="categoryId">
+    	<c:forEach items="${allCategory}" var="c">
+			<option value="${c.categoryId}">${c.title}</option>
+		</c:forEach>
+    </select>
+    <button type="submit" class="btn btn-primary">Save Subcategory</button>
 </form>
+
 <br><br>
 					<br><br>
 					

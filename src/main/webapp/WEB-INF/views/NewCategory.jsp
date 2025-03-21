@@ -40,11 +40,18 @@
 									<h5 class="card-title">
 										Reports <span>/Today</span>
 									</h5>
-<form action="savecategory" method="post">
-Title :<input type="text" name="title"><br></br>
-<input type="submit" value="Save Category">
 
+
+<form action="savecategory" method="post" class="p-3">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" class="form-control mb-2" required>
+
+    
+    <button type="submit" class="btn btn-primary">Save Category</button>
 </form>
+
+
+<
 <br><br>
 					<br><br>
 					

@@ -10,23 +10,37 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.CategoryEntity;
+import com.grownited.entity.SubcategoryEntity;
 import com.grownited.repository.CategoryRepository;
+import com.grownited.repository.SubcategoryRepository;
 
 @Controller
 public class CategoryController {
 	
 	@Autowired
 	CategoryRepository repoCategory;
+	
+	@Autowired
+	SubcategoryRepository repoSubcategory;
+	
+	
 	@GetMapping("newcategory")
-	public String newcategory() {
+	public String newcategory(Model model) {
+		// select * from subcategory;
+		List<SubcategoryEntity> allSubcategory = repoSubcategory.findAll();//all subcategory
+		model.addAttribute("allSubcategory", allSubcategory);
 		return "NewCategory";
 	}
+	
 	@PostMapping("savecategory")
 	public String savecategory(CategoryEntity category) {
 		repoCategory.save(category);
 		return "redirect:/listcategory";	
 		
 	}
+
+ 	
+ 	
 	
 	@GetMapping("listcategory")
 	public String listcategory(Model model) {

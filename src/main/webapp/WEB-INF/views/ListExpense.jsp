@@ -9,6 +9,8 @@
 <meta charset="UTF-8">
 <title>List Expense</title>
 <jsp:include page="AdminCss.jsp"></jsp:include>
+<link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+
 </head>
 <body>
 <h2>List Expense</h2>
@@ -45,8 +47,7 @@
 										Reports <span>/Today</span>
 									</h5>
 
-	<table border="1">
-		
+	<table class="table datatable datatable-table table-hover" >
 		<tr>
 		<th>Title</th>
 		<th>Status</th>
@@ -96,6 +97,21 @@
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
 		
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+ 	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+  
+ 
+ 
+
+	<script type="text/javascript">
+
+	$( document ).ready(function() {
+		let table = new DataTable('#myTable',{
+			 
+		});
+	});
+	</script>
 </body>
 </html>
