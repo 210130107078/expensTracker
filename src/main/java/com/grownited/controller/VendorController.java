@@ -9,10 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.grownited.entity.AccountEntity;
-import com.grownited.entity.ExpenseEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.entity.VendorEntity;
 import com.grownited.repository.VendorRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class VendorController {
@@ -24,16 +25,21 @@ public class VendorController {
 		return "NewVendor";
 	}
 	@PostMapping("savevendor")
-	public String savevendor(VendorEntity vendor) {
-		repoVendor.save(vendor);
+	public String savevendor(VendorEntity vendor,HttpSession session) {
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+ 		Integer userId = user.getUserId(); 
+ 		vendor.setUserId(userId);
+ 		
+ 		repoVendor.save(vendor);
 		return "redirect:/listvendor";		
 	}
 	@GetMapping("listvendor")
 	public String listvendor(Model model) {
-		List<VendorEntity> vendorList = repoVendor.findAll();
+		List<Object[]> vendorList = repoVendor.getAll();
 		//how to send data from controller to jsp 
 				//Model 
-				model.addAttribute("vendorList",vendorList);
+				model.addAttribute("allVendor",vendorList);
 								//dataName , dataValue
 		return "ListVendor";
 		

@@ -9,7 +9,8 @@ import com.grownited.entity.SubcategoryEntity;
 
 @Repository
 public interface SubcategoryRepository extends JpaRepository<SubcategoryEntity, Integer> {
-
+	
+	
 	
 	
 }

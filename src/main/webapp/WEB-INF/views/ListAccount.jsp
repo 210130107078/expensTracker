@@ -15,7 +15,7 @@
 <body>
 		<h2>List Account</h2>
 		<jsp:include page="AdminHeader.jsp"></jsp:include>
-<jsp:include page="AdminSidebar.jsp"></jsp:include>
+		<jsp:include page="AdminSidebar.jsp"></jsp:include>
 
 
 <main id="main" class="main">
@@ -24,7 +24,7 @@
 			<h1>Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>
 			</nav>
@@ -53,16 +53,25 @@
 		<th>Title</th>
 		<th>Amount</th>
 		<th>Description</th>
+		<th>FirstName</th>
+		<th>LastName</th>
+		<th>Email</th>
+		<th>ContactNum</th>
 		<th>Action</th>
 		</tr>
 		
-		<c:forEach items="${accountList}" var="a">
+		<c:forEach items="${allAccount}" var="a">
 		
 		<tr>
-		<td>${a.title}</td>
-		<td>${a.amount}</td>
-		<td>${a.description}</td>
-		<td><a href="viewaccount?accountId=${a.accountId}">View</a>  |  <a href="deleteaccount?accountId=${a.accountId}">Delete</a>  |  Edit </td>
+			<td>${a[3]}</td>
+			<td>${a[1]}</td>
+			<td>${a[2]}</td>
+			<td>${a[5]}</td>
+			<td>${a[6]}</td>
+			<td>${a[7]}</td>
+			<td>${a[8]}</td>
+			
+			<td><a href="viewaccount?accountId=${a[0]}">View</a>  |  <a href="deleteaccount?accountId=${a[0]}">Delete</a>  |  Edit </td>			
 		</tr>
 		
 		</c:forEach>

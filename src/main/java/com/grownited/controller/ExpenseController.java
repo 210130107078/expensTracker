@@ -13,12 +13,15 @@ import com.grownited.entity.AccountEntity;
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.ExpenseEntity;
 import com.grownited.entity.SubcategoryEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.entity.VendorEntity;
 import com.grownited.repository.AccountRepository;
 import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.ExpenseRepository;
 import com.grownited.repository.SubcategoryRepository;
 import com.grownited.repository.VendorRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class ExpenseController {
@@ -63,12 +66,15 @@ List<SubcategoryEntity> allSubcategory = repoSubcategory.findAll();// all state
 		return "NewExpense";
 	}
 	@PostMapping("saveexpense")
-	public String saveexpense(ExpenseEntity expense,Integer accountId,Integer vendorId,Integer categoryId,Integer subcategoryId) {
+	public String saveexpense(ExpenseEntity expense,Integer accountId,Integer vendorId,Integer categoryId,Integer subcategoryId,HttpSession session) {
 		expense.setAccountId(accountId);
 		expense.setVendorId(vendorId);
 		expense.setCategoryId(categoryId);
 		expense.setSubcategoryId(categoryId);
 		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+ 		Integer userId = user.getUserId(); 
+ 		expense.setUserId(userId);
 		
 		repoExpense.save(expense);
 		
@@ -80,10 +86,10 @@ List<SubcategoryEntity> allSubcategory = repoSubcategory.findAll();// all state
 	
 	@GetMapping("listexpense")
 	public String listexpense(Model model) {
-		List<ExpenseEntity> expenseList = repoExpense.findAll();
+		List<Object[]> expenseList = repoExpense.getAll();
 		//how to send data from controller to jsp 
 				//Model 
-				model.addAttribute("expenselist",expenseList);
+				model.addAttribute("allExpense",expenseList);
 								//dataName , dataValue
 		return "ListExpense";
 		

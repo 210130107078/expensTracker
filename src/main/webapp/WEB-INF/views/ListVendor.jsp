@@ -24,7 +24,7 @@
 			<h1>Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>
 			</nav>
@@ -50,15 +50,24 @@
 		
 		<tr>
 		<th>Title</th>
+		<th>FirstName</th>
+		<th>LastName</th>
+		<th>Email</th>
+		<th>ContactNum</th>
+		
 		<th>Action</th>
 
 		</tr>
 		
-		<c:forEach items="${vendorList}" var="v">
+		<c:forEach items="${allVendor}" var="v">
 		
 		<tr>
-		<td>${v.title}</td>
-		<td><a href="viewvendor?vendorId=${v.vendorId}">View</a>  |  <a href="deletevendor?vendorId=${v.vendorId}">Delete</a>  |  Edit </td>
+		<td>${v[1]}</td>
+		<td>${v[3]}</td>
+		<td>${v[4]}</td>
+		<td>${v[5]}</td>
+		<td>${v[6]}</td>
+		<td><a href="viewvendor?vendorId=${v[0]}">View</a>  |  <a href="deletevendor?vendorId=${v[0]}">Delete</a>  |  Edit </td>
 		</tr>
 		
 		</c:forEach>

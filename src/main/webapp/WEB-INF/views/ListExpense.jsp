@@ -24,7 +24,7 @@
 			<h1>Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>
 			</nav>
@@ -54,18 +54,26 @@
 		<th>Amount</th>
 		<th>TranscationDate</th>
 		<th>Description</th>
+		<th>FirstName</th>
+		<th>LastName</th>
+		<th>Email</th>
+		<th>ContactNum</th>
 		<th>Action</th>
 		</tr>
 		
-		<c:forEach items="${expenselist}" var="e">
+		<c:forEach items="${allExpense}" var="e">
 		
 		<tr>
-		<td>${e.title}</td>
-		<td>${e.status}</td>
-		<td>${e.amount}</td>
-		<td>${e.transcationDate}</td>
-		<td>${e.description}</td>
-		<td><a href="viewexpense?expenseId=${e.expenseId}">View</a>  |  <a href="deleteexpense?expenseId=${e.expenseId}">Delete</a>  |  Edit </td>
+		<td>${e[7]}</td>
+		<td>${e[5]}</td>
+		<td>${e[2]}</td>
+		<td>${e[8]}</td>
+		<td>${e[4]}</td>
+		<td>${e[11]}</td>
+		<td>${e[12]}</td>
+		<td>${e[13]}</td>
+		<td>${e[14]}</td>
+		<td><a href="viewexpense?expenseId=${e[0]}">View</a>  |  <a href="deleteexpense?expenseId=${e[0]}">Delete</a>  |  Edit </td>
 		</tr>
 		
 		</c:forEach>

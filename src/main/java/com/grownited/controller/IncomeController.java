@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.grownited.entity.AccountEntity;
 import com.grownited.entity.ExpenseEntity;
 import com.grownited.entity.IncomeEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.AccountRepository;
 import com.grownited.repository.IncomeRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class IncomeController {
@@ -34,18 +37,23 @@ List<AccountEntity> allAccount = repoAccount.findAll();// all state
 	}
 	
 	@PostMapping("saveincome")
-	public String saveincome(IncomeEntity income,Integer accountId) {
+	public String saveincome(IncomeEntity income,Integer accountId,HttpSession session) {
 		income.setAccountId(accountId);
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+ 		Integer userId = user.getUserId(); 
+ 		income.setUserId(userId);
+		
 		repoIncome.save(income);
 		return "redirect:/listincome";
 	}
 	
 	@GetMapping("listincome")
 	public String listincome(Model model) {
-		List<IncomeEntity> incomeList = repoIncome.findAll();
+		List<Object[]> incomeList = repoIncome.getAll();
 		//how to send data from controller to jsp 
 				//Model 
-				model.addAttribute("incomeList",incomeList);
+				model.addAttribute("allIncome",incomeList);
 								//dataName , dataValue
 		return "ListIncome";
 		

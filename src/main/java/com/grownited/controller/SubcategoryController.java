@@ -14,6 +14,8 @@ import com.grownited.entity.SubcategoryEntity;
 import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.SubcategoryRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class SubcategoryController {
 	
@@ -37,6 +39,9 @@ List<CategoryEntity> allCategory = repoCategory.findAll();// all state
 	@PostMapping("savesubcategory")
 	public String savesubcategory(SubcategoryEntity subcategory,Integer categoryId) {
 		subcategory.setCategoryId(categoryId);
+		
+		
+		
 		repoSubcategory.save(subcategory);
 		return "redirect:/listsubcategory";	
 		
@@ -67,7 +72,7 @@ List<CategoryEntity> allCategory = repoCategory.findAll();// all state
 			// data found
 			SubcategoryEntity subcategory = op.get();
 			// send data to jsp ->
-			model.addAttribute("subcategory", subcategory);
+			model.addAttribute("allSubcategory", subcategory);
 
 		}
 

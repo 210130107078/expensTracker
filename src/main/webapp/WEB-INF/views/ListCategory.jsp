@@ -25,7 +25,7 @@
 			<h1>Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>
 			</nav>
@@ -52,14 +52,22 @@
 		
 		<tr>
 		<th>Title</th>
+		<th>FirstName</th>
+		<th>LastName</th>
+		<th>Email</th>
+		<th>ContactNum</th>
 		<th>Action</th>
 		</tr>
 		
-		<c:forEach items="${categoryList}" var="c">
+		<c:forEach items="${allCategory}" var="c">
 		
 		<tr>
-		<td>${c.title}</td>
-		<td><a href="viewcategory?categoryId=${c.categoryId}">View</a>  |  <a href="deletecategory?categoryId=${c.categoryId}">Delete</a>  |  Edit </td>
+		<td>${c[1]}</td>
+		<td>${c[3]}</td>
+		<td>${c[4]}</td>
+		<td>${c[5]}</td>
+		<td>${c[6]}</td>
+		<td><a href="viewcategory?categoryId=${c[0]}">View</a>  |  <a href="deletecategory?categoryId=${c[0]}">Delete</a>  |  Edit </td>
 		</tr>
 		
 		</c:forEach>

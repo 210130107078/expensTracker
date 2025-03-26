@@ -24,7 +24,7 @@
 			<h1>Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>
 			</nav>
@@ -55,18 +55,26 @@
 		<th>Amount</th>
 		<th>TranscationDate</th>
 		<th>Description</th>
+		<th>FirstName</th>
+		<th>LastName</th>
+		<th>Email</th>
+		<th>ContactNum</th>
 		<th>Action</th>
 		</tr>
 		
-		<c:forEach items="${incomeList}" var="i">
+		<c:forEach items="${allIncome}" var="i">
 		
 		<tr>
-		<td>${i.title}</td>
-		<td>${i.status}</td>
-		<td>${i.amount}</td>
-		<td>${i.transcationDate}</td>
-		<td>${i.description}</td>
-		<td><a href="viewincome?incomeId=${i.incomeId}">View</a>  |  <a href="deleteincome?incomeId=${i.incomeId}">Delete</a>  |  Edit </td>
+		<td>${i[5]}</td>
+		<td>${i[4]}</td>
+		<td>${i[2]}</td>
+		<td>${i[6]}</td>
+		<td>${i[3]}</td>
+		<td>${i[8]}</td>
+		<td>${i[9]}</td>
+		<td>${i[10]}</td>
+		<td>${i[11]}</td>
+		<td><a href="viewincome?incomeId=${i[0]}">View</a>  |  <a href="deleteincome?incomeId=${i[0]}">Delete</a>  |  Edit </td>
 		</tr>
 		
 		</c:forEach>

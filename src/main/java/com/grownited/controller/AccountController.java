@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.AccountEntity;
 import com.grownited.entity.ExpenseEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.AccountRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AccountController {
@@ -25,19 +28,24 @@ public class AccountController {
 		
 	}
 	@PostMapping("saveaccount")
-	public String saveaccount(AccountEntity account)
+	public String saveaccount(AccountEntity account,HttpSession session)
 	{
+		UserEntity user = (UserEntity) session.getAttribute("user");
+ 		Integer userId = user.getUserId(); 
+ 		account.setUserId(userId);	
 		repoAccount.save(account);
 		return "redirect:/listaccount";
 	}
 	
+	
+	
 	@GetMapping("listaccount")
 	public String listaccount(Model model) {
-		List<AccountEntity> accountList = repoAccount.findAll();
+		List<Object[]> accountList = repoAccount.getAll();
 		
 		//how to send data from controller to jsp 
 		//Model 
-		model.addAttribute("accountList",accountList);
+		model.addAttribute("allAccount",accountList);
 						//dataName , dataValue
 		return "ListAccount";
 		

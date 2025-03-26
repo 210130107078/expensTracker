@@ -24,7 +24,7 @@
 			<h1>Dashboard</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">Dashboard</li>
 				</ol>
 			</nav>
@@ -54,12 +54,13 @@
 		<th>Action</th>
 		</tr>
 		
-		<c:forEach items="${subcategorylist}" var="s">
+		<c:forEach items="${subcategoryList}" var="s">
 		
 		<tr>
-		<td>${s.title}</td>
-		<td>${s.subTitle }</td>
-		<td><a href="viewsubcategory?subcategoryId=${s.subcategoryId}">View</a>  |  <a href="deletesubcategory?subcategoryId=${s.subcategoryId}">Delete</a>  |  Edit </td>
+		<td>${s.subcategoryId}</td>
+		<td>${s.subTitle}</td>
+		<td><a href="viewsubcategory?subcategoryId=${s.subcategoryId}">View</a> |  
+		<a href="deletesubcategory?subcategoryId=${s.subcategoryId}">Delete</a>  |  Edit </td>
 		</tr>
 		
 		</c:forEach>

@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.CategoryEntity;
 import com.grownited.entity.SubcategoryEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.CategoryRepository;
 import com.grownited.repository.SubcategoryRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class CategoryController {
@@ -33,7 +36,12 @@ public class CategoryController {
 	}
 	
 	@PostMapping("savecategory")
-	public String savecategory(CategoryEntity category) {
+	public String savecategory(CategoryEntity category,HttpSession session) {
+		
+		UserEntity user = (UserEntity) session.getAttribute("user");
+ 		Integer userId = user.getUserId(); 
+ 		category.setUserId(userId);
+		
 		repoCategory.save(category);
 		return "redirect:/listcategory";	
 		
@@ -44,11 +52,11 @@ public class CategoryController {
 	
 	@GetMapping("listcategory")
 	public String listcategory(Model model) {
-		List<CategoryEntity> categoryList = repoCategory.findAll();
+		List<Object[]> categoryList = repoCategory.getAll();
 		
 		//how to send data from controller to jsp 
 		//Model 
-		model.addAttribute("categoryList",categoryList);
+		model.addAttribute("allCategory",categoryList);
 						//dataName , dataValue
 		return "ListCategory";
 		
