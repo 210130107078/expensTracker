@@ -55,19 +55,54 @@ public class AccountController {
 	public String viewAccount(Integer accountId, Model model) {
 		// ?
 		System.out.println("id ===> " + accountId);
-		Optional<AccountEntity> op = repoAccount.findById(accountId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
+		List<Object[]> op = repoAccount.getByAccountId(accountId);
+//		if (op.isEmpty()) {
+//			// not found
+//		} else {
 			// data found
-			AccountEntity account = op.get();
+//			AccountEntity account = op.get();
 			// send data to jsp ->
-			model.addAttribute("account", account);
+		System.out.println(op);
+			model.addAttribute("account", op);
 
-		}
+//		}
 
 		return "ViewAccount";
 	}
+	
+	@GetMapping("editaccount")
+ 	public String editAccount(Integer accountId,Model model) {
+ 		Optional<AccountEntity> op = repoAccount.findById(accountId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/listaccount";
+ 		} else {
+ 			model.addAttribute("account",op.get());
+ 			return "EditAccount";
+ 
+ 		}
+ 	}
+ 	//save -> entity -> no id present -> insert 
+ 	//save -> entity -> id present -> not present in db -> insert 
+ 	//save -> entity -> id present -> present in db -> update  
+ 
+ 	@PostMapping("updateaccount")
+ 	public String updateAccount(AccountEntity accountEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(accountEntity.getAccountId());//id? db? 
+ 
+ 		Optional<AccountEntity> op = repoAccount.findById(accountEntity.getAccountId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			AccountEntity dbAccount = op.get(); //pcode vhreg type id userId 
+ 			dbAccount.setTitle(accountEntity.getTitle());//code 
+ 			dbAccount.setAmount(accountEntity.getAmount());//type 
+ 			dbAccount.setDescription(accountEntity.getDescription());//type 
+ 			//
+ 			repoAccount.save(dbAccount);
+ 		}
+ 		return "redirect:/listaccount";
+ 	}
 	
 	@GetMapping("deleteaccount")
 	public String deleteAccount(Integer accountId) {

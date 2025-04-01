@@ -14,4 +14,7 @@ public interface AccountRepository extends JpaRepository<AccountEntity, Integer>
 
 	@Query(value = "select a.* , u.first_name , u.last_name , u.email , u.contact_num from users u , account a where a.user_id=u.user_id",nativeQuery = true)
  	List<Object[]>	getAll();
+ 	
+ 	@Query(value = "select a.* , u.first_name , u.last_name , u.email , u.contact_num from users u , account a where a.user_id = u.user_id and a.account_id = :accountId", nativeQuery = true)
+ 	List<Object[]> getByAccountId(Integer accountId);
 }
