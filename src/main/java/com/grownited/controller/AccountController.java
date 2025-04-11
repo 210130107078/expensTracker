@@ -56,13 +56,7 @@ public class AccountController {
 		// ?
 		System.out.println("id ===> " + accountId);
 		List<Object[]> op = repoAccount.getByAccountId(accountId);
-//		if (op.isEmpty()) {
-//			// not found
-//		} else {
-			// data found
-//			AccountEntity account = op.get();
-			// send data to jsp ->
-		System.out.println(op);
+	
 			model.addAttribute("account", op);
 
 //		}

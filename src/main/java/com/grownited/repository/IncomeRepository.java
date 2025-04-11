@@ -14,4 +14,7 @@ public interface IncomeRepository extends JpaRepository<IncomeEntity, Integer> {
 	@Query(value = "select i.* , u.first_name , u.last_name , u.email , u.contact_num from users u , income i where i.user_id=u.user_id",nativeQuery = true)
  	List<Object[]>	getAll();
 	
+ 	@Query(value = "select i.* , u.first_name , u.last_name , u.email , u.contact_num from users u , income i where i.user_id=u.user_id",nativeQuery = true)
+ 	List<Object[]> getByIncomeId(Integer incomeId);
+
 }

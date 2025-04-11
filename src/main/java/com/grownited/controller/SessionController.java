@@ -1,7 +1,6 @@
 package com.grownited.controller;
 
 import java.io.IOException;
-import java.net.PasswordAuthentication;
 import java.util.Map;
 import java.util.Optional;
 
@@ -109,7 +108,7 @@ public class SessionController {
 					return "redirect:/admindashboard";
 				} else if (dbUser.getRole().equals("USER")) {
 
-					return "redirect:/home";
+					return "redirect:/userdashboard";
 				} else {
 					model.addAttribute("error", "Please contact Admin with Error Code #2222");
 					return "Login";

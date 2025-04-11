@@ -67,7 +67,7 @@
 		<td>${c[4]}</td>
 		<td>${c[5]}</td>
 		<td>${c[6]}</td>
-		<td><a href="viewcategory?categoryId=${c[0]}">View</a>  |  <a href="deletecategory?categoryId=${c[0]}">Delete</a>  |  Edit </td>
+		<td><a href="viewcategory?categoryId=${c[0]}">View</a>  |  <a href="deletecategory?categoryId=${c[0]}">Delete</a>  |  <a href="editcategory?categoryId=${c[0]}">Edit</a> </td>
 		</tr>
 		
 		</c:forEach>

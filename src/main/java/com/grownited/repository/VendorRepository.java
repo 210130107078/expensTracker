@@ -13,4 +13,8 @@ public interface VendorRepository extends JpaRepository<VendorEntity, Integer> {
 
 	@Query(value = "select v.* , u.first_name , u.last_name , u.email , u.contact_num from users u , vendor v where v.user_id=u.user_id",nativeQuery = true)
  	List<Object[]>	getAll();
-}
+ 	
+ 	@Query(value = "select v.* , u.first_name , u.last_name , u.email , u.contact_num from users u , vendor v where v.user_id=u.user_id",nativeQuery = true)
+ 	List<Object[]> getByVendorId(Integer vendorId);
+ 	}
+

@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>New Account</title>
-<jsp:include page="AdminCss.jsp"></jsp:include>
+<jsp:include page="UserCss.jsp"></jsp:include>
 
 </head>
 <body>
 <h2>New Account</h2>
-<jsp:include page="AdminHeader.jsp"></jsp:include>
-<jsp:include page="AdminSidebar.jsp"></jsp:include>
+<jsp:include page="UserHeader.jsp"></jsp:include>
+<jsp:include page="UserSidebar.jsp"></jsp:include>
 
 
 <main id="main" class="main">
@@ -77,9 +77,9 @@
 		</section>
 
 	</main>
-<jsp:include page="AdminFooter.jsp"></jsp:include>
+<jsp:include page="UserFooter.jsp"></jsp:include>
 
-	<jsp:include page="AdminJs.jsp"></jsp:include>
+	<jsp:include page="UserJs.jsp"></jsp:include>
 
 	
 </body>

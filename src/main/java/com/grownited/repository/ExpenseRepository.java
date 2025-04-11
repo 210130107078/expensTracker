@@ -13,4 +13,8 @@ public interface ExpenseRepository extends JpaRepository<ExpenseEntity, Integer>
 
 	@Query(value = "select e.* , u.first_name , u.last_name , u.email , u.contact_num from users u , expense e where e.user_id=u.user_id",nativeQuery = true)
  	List<Object[]>	getAll();
-}
+ 	
+ 	@Query(value = "select e.* , u.first_name , u.last_name , u.email , u.contact_num from users u , expense e where e.user_id=u.user_id",nativeQuery = true)
+ 	List<Object[]> getByExpenseId(Integer expenseId);
+ 	}
+

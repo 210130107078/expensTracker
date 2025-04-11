@@ -8,14 +8,14 @@
 <head>
 <meta charset="UTF-8">
 <title>List Expense</title>
-<jsp:include page="AdminCss.jsp"></jsp:include>
+<jsp:include page="UserCss.jsp"></jsp:include>
 <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
 
 </head>
 <body>
 <h2>List Expense</h2>
-<jsp:include page="AdminHeader.jsp"></jsp:include>
-<jsp:include page="AdminSidebar.jsp"></jsp:include>
+<jsp:include page="UserHeader.jsp"></jsp:include>
+<jsp:include page="UserSidebar.jsp"></jsp:include>
 
 
 <main id="main" class="main">
@@ -73,7 +73,7 @@
 		<td>${e[12]}</td>
 		<td>${e[13]}</td>
 		<td>${e[14]}</td>
-		<td><a href="viewexpense?expenseId=${e[0]}">View</a>  |  <a href="deleteexpense?expenseId=${e[0]}">Delete</a>  |  Edit </td>
+		<td><a href="viewexpense?expenseId=${e[0]}">View</a>  |  <a href="deleteexpense?expenseId=${e[0]}">Delete</a>  |  <a href="editexpense?expenseId=${e[0]}">Edit</a> </td>
 		</tr>
 		
 		</c:forEach>
@@ -101,9 +101,9 @@
 		</section>
 
 	</main>
-<jsp:include page="AdminFooter.jsp"></jsp:include>
+<jsp:include page="UserFooter.jsp"></jsp:include>
 
-	<jsp:include page="AdminJs.jsp"></jsp:include>
+	<jsp:include page="UserJs.jsp"></jsp:include>
 		
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 

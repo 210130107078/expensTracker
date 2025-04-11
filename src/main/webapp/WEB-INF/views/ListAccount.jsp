@@ -8,14 +8,14 @@
 <head>
 <meta charset="UTF-8">
 <title>List Account</title>
-<jsp:include page="AdminCss.jsp"></jsp:include>
+<jsp:include page="UserCss.jsp"></jsp:include>
 <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
 
 </head>
 <body>
 		<h2>List Account</h2>
-		<jsp:include page="AdminHeader.jsp"></jsp:include>
-		<jsp:include page="AdminSidebar.jsp"></jsp:include>
+		<jsp:include page="UserHeader.jsp"></jsp:include>
+		<jsp:include page="UserSidebar.jsp"></jsp:include>
 
 
 <main id="main" class="main">
@@ -99,9 +99,9 @@
 		</section>
 
 	</main>
-<jsp:include page="AdminFooter.jsp"></jsp:include>
+<jsp:include page="UserFooter.jsp"></jsp:include>
 
-	<jsp:include page="AdminJs.jsp"></jsp:include>
+	<jsp:include page="UserJs.jsp"></jsp:include>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
  	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>

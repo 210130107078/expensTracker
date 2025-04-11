@@ -84,7 +84,7 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Help Me!</button>
+                      <button class="btn btn-primary w-100" type="submit">Send OTP</button>
                     </div>
                     <div class="col-12">
                       <a href="login">Login</a>

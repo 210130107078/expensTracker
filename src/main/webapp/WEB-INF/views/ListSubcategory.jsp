@@ -60,7 +60,7 @@
 		<td>${s.subcategoryId}</td>
 		<td>${s.subTitle}</td>
 		<td><a href="viewsubcategory?subcategoryId=${s.subcategoryId}">View</a> |  
-		<a href="deletesubcategory?subcategoryId=${s.subcategoryId}">Delete</a>  |  Edit </td>
+		<a href="deletesubcategory?subcategoryId=${s.subcategoryId}">Delete</a>  |  <a href="editsubcategory?subcategoryId=${s.subcategoryId}">Edit</a> </td>
 		</tr>
 		
 		</c:forEach>

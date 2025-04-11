@@ -67,7 +67,7 @@
 		<td>${v[4]}</td>
 		<td>${v[5]}</td>
 		<td>${v[6]}</td>
-		<td><a href="viewvendor?vendorId=${v[0]}">View</a>  |  <a href="deletevendor?vendorId=${v[0]}">Delete</a>  |  Edit </td>
+		<td><a href="viewvendor?vendorId=${v[0]}">View</a>  |  <a href="deletevendor?vendorId=${v[0]}">Delete</a>  |  <a href="editvendor?vendorId=${v[0]}">Edit</a> </td>
 		</tr>
 		
 		</c:forEach>
