@@ -63,19 +63,51 @@ List<AccountEntity> allAccount = repoAccount.findAll();// all state
 	public String viewIncome(Integer incomeId, Model model) {
 		// ?
 		System.out.println("id ===> " + incomeId);
-		Optional<IncomeEntity> op = repoIncome.findById(incomeId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			IncomeEntity income = op.get();
-			// send data to jsp ->
-			model.addAttribute("income", income);
+		List<Object[]> op = repoIncome.getByIncomeId(incomeId);
+		
+			model.addAttribute("income", op);
 
-		}
+		
 
 		return "ViewIncome";
 	}
+	
+	
+	@GetMapping("editincome")
+ 	public String editIncome(Integer incomeId,Model model) {
+ 		Optional<IncomeEntity> op = repoIncome.findById(incomeId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/listincome";
+ 		} else {
+ 			model.addAttribute("income",op.get());
+ 			return "EditIncome";
+ 
+ 		}
+ 	}
+ 	//save -> entity -> no id present -> insert 
+ 	//save -> entity -> id present -> not present in db -> insert 
+ 	//save -> entity -> id present -> present in db -> update  
+ 
+ 	@PostMapping("updateincome")
+ 	public String updateIncome(IncomeEntity incomeEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(incomeEntity.getIncomeId());//id? db? 
+ 
+ 		Optional<IncomeEntity> op = repoIncome.findById(incomeEntity.getIncomeId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			IncomeEntity dbIncome = op.get(); //pcode vhreg type id userId 
+ 			dbIncome.setTitle(incomeEntity.getTitle());//code 
+ 			dbIncome.setStatus(incomeEntity.getStatus());
+ 			dbIncome.setAmount(incomeEntity.getAmount());//type 
+ 			dbIncome.setDescription(incomeEntity.getDescription());//type 
+ 			//
+ 			repoIncome.save(dbIncome);
+ 		}
+ 		return "redirect:/listincome";
+ 	}
+	
 	
 	@GetMapping("deleteincome")
 	public String deleteIncome(Integer incomeId) {

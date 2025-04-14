@@ -99,19 +99,51 @@ List<SubcategoryEntity> allSubcategory = repoSubcategory.findAll();// all state
 	public String viewExpense(Integer expenseId, Model model) {
 		// ?
 		System.out.println("id ===> " + expenseId);
-		Optional<ExpenseEntity> op = repoExpense.findById(expenseId);
-		if (op.isEmpty()) {
-			// not found
-		} else {
-			// data found
-			ExpenseEntity expense = op.get();
-			// send data to jsp ->
-			model.addAttribute("expense", expense);
+		List<Object[]> op = repoExpense.getByExpenseId(expenseId);
+		
+			model.addAttribute("expense", op);
 
-		}
+		
 
 		return "ViewExpense";
 	}
+	
+	
+	
+	@GetMapping("editexpense")
+ 	public String editExpense(Integer expenseId,Model model) {
+ 		Optional<ExpenseEntity> op = repoExpense.findById(expenseId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/listexpense";
+ 		} else {
+ 			model.addAttribute("expense",op.get());
+ 			return "EditExpense";
+ 
+ 		}
+ 	}
+ 	//save -> entity -> no id present -> insert 
+ 	//save -> entity -> id present -> not present in db -> insert 
+ 	//save -> entity -> id present -> present in db -> update  
+ 
+ 	@PostMapping("updateexpense")
+ 	public String updateExpense(ExpenseEntity expenseEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(expenseEntity.getExpenseId());//id? db? 
+ 
+ 		Optional<ExpenseEntity> op = repoExpense.findById(expenseEntity.getExpenseId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			ExpenseEntity dbExpense = op.get(); //pcode vhreg type id userId 
+ 			dbExpense.setTitle(expenseEntity.getTitle());//code 
+ 			dbExpense.setStatus(expenseEntity.getStatus());
+ 			dbExpense.setAmount(expenseEntity.getAmount());//type 
+ 			dbExpense.setDescription(expenseEntity.getDescription());//type 
+ 			//
+ 			repoExpense.save(dbExpense);
+ 		}
+ 		return "redirect:/listexpense";
+ 	}
 	
 	@GetMapping("deleteexpense")
 	public String deleteExpense(Integer expenseId) {
